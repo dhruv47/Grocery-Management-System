@@ -49,7 +49,7 @@ void read()
     string name;
     string quan;
     string pri;
-    cout<<"Name\tQuantity\tPrice"<<endl;
+    cout<<setw(10)<<"Name"<<setw(10)<<"||\t"<<setw(10)<<"Quantity"<<setw(10)<<"||\t"<<setw(10)<<"Price"<<setw(10)<< "||"<<endl;
     while (file.good())
     {
         getline(file, name, ',');
@@ -58,9 +58,9 @@ void read()
 
         if(name != "")
         {
-            cout<<setw(10)<<name<<"\t";
-            cout<<setw(10)<<quan<<"\t";
-            cout<<setw(10)<<pri<<endl;
+            cout<<setw(10)<<name<<setw(10)<< "||"<<"\t";
+            cout<<setw(10)<<quan<<setw(10)<< "||"<<"\t";
+            cout<<setw(10)<<pri<<setw(10)<< "||"<<endl;
         }
         
     }
@@ -262,7 +262,7 @@ void items::read_item()
 void items::bill_input()
 {
     total =0;
-    cout<<"Enter the name of item and quantity:\n ";
+    cout<<"Enter the name of item and quantity:\n(Type 'ok' after you complete the bill) \n";
     while(true)
     {
         cin>>iname;
@@ -271,6 +271,7 @@ void items::bill_input()
         cin>>q;
         update(iname,q,1);
     }
+    cout<<"-------------------------------\n";
     cout<<"Your total is "<<total<<" Rs.\n";
     cout<<"-------------------------------\n";
 }
