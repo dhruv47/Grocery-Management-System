@@ -170,7 +170,7 @@ void del(string find)
     string line;
 
     ifstream myfile2; //for reading records
-   myfile2.open("data.csv");
+    myfile2.open("data.csv");
 
     ofstream temp;
     temp.open("temp.csv");
@@ -245,7 +245,7 @@ void items:: add_item()
     while(true)
     {
         cin>>iname;
-        if(iname == "ok")
+        if(iname == "ok" || iname == "OK" || iname == "Ok" )
         break;
         cin>>q>>p;
         update(iname,q,0,p);
@@ -255,6 +255,7 @@ void items:: add_item()
 
 void items::read_item()
 {
+    cout<<"-------------------------------\n";
     read();
     cout<<"-------------------------------\n";
 }
@@ -262,23 +263,23 @@ void items::read_item()
 void items::bill_input()
 {
     total =0;
-    cout<<"Enter the name of item and quantity:\n(Type 'ok' after you complete the bill) \n";
+    cout<<"Enter the name of Item and Quantity:\n(Type 'ok' after you complete the bill): \n";
     while(true)
     {
         cin>>iname;
-        if(iname == "ok")
+        if(iname == "ok" || iname == "OK" || iname == "Ok" )
         {break;}
         cin>>q;
         update(iname,q,1);
     }
     cout<<"-------------------------------\n";
     cout<<"Your total is "<<total<<" Rs.\n";
-    cout<<"-------------------------------\n";
+    cout<<"-------------------------------\n\n";
 }
 
 void items::del_item()
 {
-    cout<<"Name the item you want to delete: ";
+    cout<<"Name the Item you want to delete: ";
     cin>>iname;
     del(iname);
 }
@@ -289,7 +290,7 @@ int main()
     items ob;
     while(c==1)
     {
-        cout<<"\t\t:::Grosery Management System:::"<<endl;
+        cout<<"\t\t:::GROCERY MANAGEMENT SYSTEM:::"<<endl;
         cout<<"\t1> Create Bill \n\t2> Display Stocks\n\t3> Add/Modify/Delete Stocks \n\t4> Employee Details \n\t5> Exit"<<endl;
         cout<<"Enter your choice:";
         cin>>choice;
@@ -312,7 +313,7 @@ int main()
                 //3.remove stocks
                 system("cls");
                 int choice3;
-                cout<<"\t\t:::Stocks:::"<<endl;
+                cout<<"\t\t:::STOCKS:::"<<endl;
                 cout<<"\t1> Add Stocks \n\t2> Delete Stocks \n";
                 cout<<"Enter your choice of operation:";
                 cin>>choice3;
@@ -331,7 +332,7 @@ int main()
                 //2.display employee details
                 system("cls");
                 int choice4;
-                cout<<"\t\t:::Employee Management:::"<<endl;
+                cout<<"\t\t:::EMPLOYEE MANAGEMENT:::"<<endl;
                 cout<<"\t1> All Employee details \n\t2> Add Employee \n";
                 cout<<"\tEnter your choice of operation:";
                 cin>>choice4;
@@ -350,6 +351,6 @@ int main()
                 break;
         }
     }
-    cout<<"Have a nice day!!!\n";
+    cout<<"HAVE A NICE DAY!!!\n";
     
 }
