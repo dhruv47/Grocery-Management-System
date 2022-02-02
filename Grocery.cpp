@@ -25,7 +25,7 @@ void emp_read()
         getline(file, number,',');
         getline(file, time,'\n');
 
-        if(name != "")
+        if(name != " ")
         {
             cout<<name<<"\t";
             cout<<gender<<"\t";
@@ -170,7 +170,7 @@ void del(string find)
     string line;
 
     ifstream myfile2; //for reading records
-    myfile2.open("data.csv");
+    myfile2.open("stock.csv");
 
     ofstream temp;
     temp.open("temp.csv");
@@ -183,7 +183,7 @@ void del(string find)
         int pos2 = sub_line.find(",");
         string roll = sub_line.substr(0,pos2);
         string city = sub_line.substr(pos2+1);
-        cout<<name<<roll<<city<<endl;
+        // cout<<name<<roll<<city<<endl;
 
 
         if (name != find)
@@ -194,8 +194,8 @@ void del(string find)
     }
     myfile2.close();
     temp.close();
-    remove("data.csv");
-    rename("temp.csv", "data.csv");
+    remove("stock.csv");
+    rename("temp.csv", "stock.csv");
 }
 
 void add_emp()
@@ -204,7 +204,8 @@ void add_emp()
     // convert now to string form
     char* dt = ctime(&now);
     string name, gender;
-    int age, number;
+    long long int number;
+    int age;
     cout<<"Enter Name: ";
     cin>>name;
     cout<<"Enter gender: ";
@@ -213,7 +214,7 @@ void add_emp()
     cin>>age;
     cout<<"Enter your contact number: ";
     cin>>number;
-    cout<<name<<", your are now officially apointed as an employee for this store!!!!\n";
+    cout<<"Welcome "<<name<<", you are now officially apointed as an employee for this store!!!!\n";
     ofstream emp;
     // opens an existing csv file or creates a new file.
     emp.open("employee.csv", ios ::app);
@@ -250,7 +251,7 @@ void items:: add_item()
         cin>>q>>p;
         update(iname,q,0,p);
     }
-    cout<<"!!Item added successfully!!";
+    cout<<"!!Item added successfully!!\n";
 }
 
 void items::read_item()
@@ -282,6 +283,7 @@ void items::del_item()
     cout<<"Name the Item you want to delete: ";
     cin>>iname;
     del(iname);
+    cout<<"Item deleted sucessfully!! \n";
 }
 
 int main()
@@ -314,6 +316,7 @@ int main()
                 system("cls");
                 int choice3;
                 cout<<"\t\t:::STOCKS:::"<<endl;
+                read();
                 cout<<"\t1> Add Stocks \n\t2> Delete Stocks \n";
                 cout<<"Enter your choice of operation:";
                 cin>>choice3;
