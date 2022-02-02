@@ -107,7 +107,7 @@ void update(string name ,int q, int condition, int p = 0) //condition to disting
         else
         {
             a = 1;
-            if(q < stoi(curr_qua))
+            if(q <= stoi(curr_qua))
             {
                 var_qua = stoi(curr_qua);
                 var_pri = stoi(curr_pri);
